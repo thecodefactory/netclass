@@ -1,0 +1,8 @@
+
+
+Changed for 0.3.3
+=================
+NOTE: *bsd refers to OpenBSD and FreeBSD only (as tested).
+- added better usage of detected thread package for *bsd
+- *bsd compilation fixes due to improper type definitions
+- allow ncMutex to be useable on *bsd

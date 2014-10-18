@@ -1,0 +1,79 @@
+NetClass README
+===============
+
+NetClass is a very simple (to use) socket and thread wrapper that
+works under *NIX based systems as well as win32 based systems.  It
+is written in C++ and is focused on simplicity and performance. 
+
++------------------------+---------------------------------+
+| Supported Platforms    | Status                          |
++------------------------+---------------------------------+
+| GNU/Linux      x86     | Compiles, Works                 |
+| GNU/Linux      PPC     | Compiles, Works                 |
+| OpenBSD 3.0    x86     | Compiles, Works                 |
+| FreeBSD n.m    x86     | Compiles, Works                 |
+| MS Windows     x86     | Compiles, Works +               |
+| Cygwin/win32   x86     | Compiles, Not fully working     |
+| Apple/OS X     PPC     | Compiles, Untested *            |
+| GNU/Linux      alpha   | Compiles, Untested              |
+| GNU/Linux      sparc   | Compiles, Untested              |
+| GNU/Linux      arm     | Compiles, Untested              |
++------------------------+---------------------------------+
+
+Note: If you are using NetClass on another platform, please send
+information to netclass-general@lists.sourceforge.net
+
++ On some platforms, you need to run autogen.sh instead of the
+  provided configure script.  Particularly if you see an error
+  about your aclocal version.
+
++ For MS Visual C++ Project files, you must download the NetClass code
+  from CVS.  The project files are not included with each release.
+  Alternatively, to create a project, simply add all files to a new
+  'library' project.
+
+* On Apple/OS X, configure may fail with the following error:
+--
+ltconfig: you must specify a host type if you use `--no-verify'
+Try `ltconfig --help' for more information.
+configure: error: libtool configure failed
+--
+The temporary workaround is to edit the configure file and erase
+the instance of '--no-verify'.  Then re-run configure.  If you
+know how to fix this, please let me know...otherwise it'll get
+fixed eventually (hopefully).
+ 
+
+About NetClass
+==============
+
+NetClass includes easy to use general purpose sockets (ncSocket)
+as ell as easy to use server sockets (ncSocketListener).
+
+The thread support is basic enough to create a simple server in a
+few lines of code.  Thread synchronization is currently provided
+only in terms of mutual exclusion (ncMutex).
+
+NetClass is a program library which once compiled and installed
+can be linked against for your own projects.  Use is granted under
+the terms of the GNU GPL.
+
+This code has been originally designed and compiled using the
+GNU/Linux 2.2.18+ kernel, as well as 2.4.x kernels.  It's also been
+verified to work as expected on 2.5.x and 2.6.0test kernels.
+
+NOTE: There are no doubt many libraries that export basic socket
+and thread calls.  I wrote NetClass because it was a collection
+of things that I found that I was commonly rewriting in every new
+project I started.  Thus - while the code is ugly at places and this
+library doesn't do a whole lot - it's still extremely useful to me
+and my projects - and I offer it as Free Software to anyone else
+that may find it useful as well.
+
+Report Bugs/Patches/Feature Requests to:
+netclass-general@lists.sourceforge.net
+
+
+-Neill Miller (neillm@thecodefactory.org)
+
+
